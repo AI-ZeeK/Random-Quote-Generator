@@ -21,7 +21,7 @@ function App() {
 
 	useEffect(() => {
 		fetchAdvice();
-		console.log(text);
+
 	}, []);
 
 	return (

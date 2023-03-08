@@ -6,25 +6,30 @@ import React, { useState } from "react";
 import { useEffect } from "react";
 
 function App() {
-	const [text, setText] = useState([]);
+	const [text, setText] = useState({});
 	const fetchAdvice = async () => {
-		const res = await fetch("https://api.adviceslip.com/advice");
-		const data = await res.json();
+		try {
+			const res = await fetch("https://api.adviceslip.com/advice");
+			const data = await res.json();
 
-		setText(data);
-		console.log(data);
+			setText(data);
+			console.log(data);
+		} catch (error) {
+			console.log(error);
+		}
 	};
 
 	useEffect(() => {
 		fetchAdvice();
+		console.log(text);
 	}, []);
 
 	return (
 		<div className="container">
-			<h1>Advice #{text.slip.id}</h1>
+			<h1>Advice #{text.slip?.id}</h1>
 			<p>{text.slip.advice}</p>
 			<picture>
-				<source media="(min-width: 768px)" srcSet={pauseDesktop} />
+				{/* <source media="(min-width: 768px)" srcSet={pauseDesktop} /> */}
 				<img src={pauseMobile} alt="" />
 			</picture>
 			<div>

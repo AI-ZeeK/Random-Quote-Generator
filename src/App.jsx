@@ -27,7 +27,7 @@ function App() {
 	return (
 		<div className="container">
 			<h1>Advice #{text.slip?.id}</h1>
-			<p>{text.slip.advice}</p>
+			<p>{text?.slip?.advice}</p>
 			<picture>
 				{/* <source media="(min-width: 768px)" srcSet={pauseDesktop} /> */}
 				<img src={pauseMobile} alt="" />
